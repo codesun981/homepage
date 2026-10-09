@@ -5,6 +5,13 @@
   document.getElementById('footer-domain').textContent = SITE_CONFIG.domain;
   document.getElementById('page-title').textContent = SITE_CONFIG.domain;
 
+  // 开场撒花
+  setTimeout(() => {
+    confetti({ particleCount: 150, spread: 100, origin: { y: 0.6 } });
+    setTimeout(() => confetti({ particleCount: 80, angle: 60, spread: 60, origin: { x: 0 } }), 300);
+    setTimeout(() => confetti({ particleCount: 80, angle: 120, spread: 60, origin: { x: 1 } }), 450);
+  }, 500);
+
   // Hero 淡入
   gsap.to('.hero-fade', { opacity: 1, y: 0, duration: 1, stagger: 0.15, delay: 0.3, ease: 'power2.out' });
 
@@ -58,12 +65,13 @@ function initFireworks() {
   const area = document.getElementById('firework-area');
   area.addEventListener('click', (e) => {
     const rect = area.getBoundingClientRect();
-    const x = (rect.left + e.clientX - rect.left) / innerWidth;
-    const y = (rect.top + e.clientY - rect.top) / innerHeight;
     confetti({
-      particleCount: 60, spread: 75, startVelocity: 35,
-      origin: { x: (rect.left + e.clientX - rect.left) / innerWidth, y: (rect.top + e.clientY - rect.top) / innerHeight },
-      colors: ['#ffffff', '#94a3b8', '#e2e8f0'],
+      particleCount: 80, spread: 80, startVelocity: 40,
+      origin: {
+        x: (rect.left + e.clientX - rect.left) / innerWidth,
+        y: (rect.top + e.clientY - rect.top) / innerHeight
+      },
+      colors: ['#f472b6', '#a78bfa', '#22d3ee', '#fbbf24', '#ffffff'],
     });
   });
 }
