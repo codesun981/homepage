@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title id="page-title">欢迎 🎉</title>
+<meta name="description" content="我的个人数字小屋">
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
+<script src="js/config.js"></script>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body class="bg-slate-950 text-white overflow-x-hidden">
+
+<canvas id="particles" class="fixed inset-0 pointer-events-none"></canvas>
+
+<!-- Hero -->
+<header class="min-h-screen flex flex-col items-center justify-center text-center px-6 relative">
+  <p class="text-sm tracking-widest text-slate-400 mb-4 hero-fade">🎉 新域名开张 🎉</p>
+  <h1 id="domain-name" class="text-5xl md:text-7xl font-black bg-gradient-to-r from-pink-400 via-purple-400 to-cyan-400 bg-clip-text text-transparent hero-fade"></h1>
+  <p id="hero-subtitle" class="mt-6 text-xl text-slate-300 hero-fade"></p>
+  <div class="mt-10 flex gap-4 hero-fade">
+    <a href="#projects" class="px-6 py-3 rounded-full bg-gradient-to-r from-pink-500 to-purple-500 font-bold hover:scale-105 transition">看看在折腾啥 ↓</a>
+    <a href="#guestbook" class="px-6 py-3 rounded-full border border-slate-600 hover:border-pink-400 transition">留个言 ✍️</a>
+  </div>
+  <p class="absolute bottom-8 text-slate-500 text-sm animate-bounce">↓ 往下滚动有惊喜</p>
+</header>
+
+<!-- Projects -->
+<section id="projects" class="py-24 px-6 max-w-5xl mx-auto">
+  <h2 class="text-3xl md:text-4xl font-bold text-center mb-4">🛠️ 最近在折腾</h2>
+  <p class="text-center text-slate-400 mb-12">一些好玩的项目，欢迎围观</p>
+  <div class="grid md:grid-cols-3 gap-6">
+    <div class="project-card bg-slate-900 rounded-2xl p-6 border border-slate-800 hover:border-purple-400 transition cursor-pointer" onclick="cardFlip(this)">
+      <div class="text-4xl mb-4">🔐</div>
+      <h3 class="text-xl font-bold mb-2">RAG 访问控制</h3>
+      <p class="text-slate-400 text-sm card-front">检索单元与授权单元解耦，让 AI 只看到它该看的东西</p>
+      <p class="text-slate-400 text-sm card-back hidden">12 轮实验，强 reader 下投影保留 92% 效用，泄露 0.90→0.06。论文ing…</p>
+    </div>
+    <div class="project-card bg-slate-900 rounded-2xl p-6 border border-slate-800 hover:border-cyan-400 transition cursor-pointer" onclick="cardFlip(this)">
+      <div class="text-4xl mb-4">📝</div>
+      <h3 class="text-xl font-bold mb-2">texmini</h3>
+      <p class="text-slate-400 text-sm card-front">macOS 原生轻量 LaTeX 编辑器</p>
+      <p class="text-slate-400 text-sm card-back hidden">极致轻快，美丽界面。写论文不再痛苦（大概）。</p>
+    </div>
+    <div class="project-card bg-slate-900 rounded-2xl p-6 border border-slate-800 hover:border-pink-400 transition cursor-pointer" onclick="cardFlip(this)">
+      <div class="text-4xl mb-4">📡</div>
+      <h3 class="text-xl font-bold mb-2">每日 AI 看板</h3>
+      <p class="text-slate-400 text-sm card-front">每天自动抓取的 AI 资讯聚合</p>
+      <p class="text-slate-400 text-sm card-back hidden">论文/模型/大佬动态/财经，一天三次更新。信息焦虑终结者。</p>
+    </div>
+  </div>
+  <p class="text-center text-slate-500 text-sm mt-8">💡 点击卡片翻面看看</p>
+</section>
+
+<!-- Easter egg hint -->
+<section class="py-16 text-center px-6">
+  <p class="text-slate-500 text-sm">🤫 听说输入一串神秘代码会有彩蛋… <span class="text-slate-700">(↑↑↓↓←→←→BA)</span></p>
+</section>
+
+<!-- Guestbook -->
+<section id="guestbook" class="py-24 px-6 max-w-3xl mx-auto">
+  <h2 class="text-3xl md:text-4xl font-bold text-center mb-4">✍️ 留言板</h2>
+  <p class="text-center text-slate-400 mb-8">来都来了，留个言再走呗</p>
+  <div class="bg-slate-900 rounded-2xl p-6 border border-slate-800">
+    <script src="https://utteranc.es/client.js"
+      repo="codesun981/homepage"
+      issue-term="pathname"
+      label="guestbook"
+      theme="github-dark"
+      crossorigin="anonymous"
+      async>
+    </script>
+  </div>
+</section>
+
+<footer class="py-12 text-center text-slate-500 text-sm border-t border-slate-800">
+  <p>Built with ♥ and too much coffee</p>
+  <p class="mt-2">© 2026 · <span id="footer-domain"></span></p>
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>
