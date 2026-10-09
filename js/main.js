@@ -18,10 +18,10 @@
 
   // 4. 滚动触发动画
   gsap.registerPlugin(ScrollTrigger);
-  gsap.utils.toArray('.project-card').forEach((card, i) => {
-    gsap.from(card, {
-      opacity: 0, y: 50, duration: 0.8, delay: i * 0.1,
-      scrollTrigger: { trigger: card, start: 'top 85%' }
+  gsap.utils.toArray('.story-item').forEach((el, i) => {
+    gsap.from(el, {
+      opacity: 0, x: -50, duration: 0.8, delay: i * 0.1,
+      scrollTrigger: { trigger: el, start: 'top 85%' }
     });
   });
 
@@ -35,9 +35,48 @@
 function cardFlip(card) {
   const front = card.querySelector('.card-front');
   const back = card.querySelector('.card-back');
-  front.classList.toggle('hidden');
-  back.classList.toggle('hidden');
+  if (front && back) {
+    front.classList.toggle('hidden');
+    back.classList.toggle('hidden');
+  }
   confetti({ particleCount: 20, spread: 50, origin: { y: 0.7 }, scalar: 0.7 });
+}
+
+// 游乐场：撒花
+function confettiBlast() {
+  const end = Date.now() + 1500;
+  (function frame() {
+    confetti({ particleCount: 4, angle: 60, spread: 55, origin: { x: 0 } });
+    confetti({ particleCount: 4, angle: 120, spread: 55, origin: { x: 1 } });
+    if (Date.now() < end) requestAnimationFrame(frame);
+  })();
+}
+
+// 游乐场：点击计数器
+let clickCount = 0;
+function clickerGame(btn) {
+  clickCount++;
+  document.getElementById('click-count').textContent = clickCount;
+  if (clickCount % 10 === 0) {
+    confetti({ particleCount: 50, spread: 70, origin: { y: 0.7 } });
+  }
+}
+
+// 游乐场：随机一言
+const QUOTES = [
+  "代码写得越多，bug 藏得越深。",
+  "今天也是元气满满的一天（大概）。",
+  "域名有了，下一步是世界和平。",
+  "人生苦短，我用 Python。",
+  "不要问我为什么半夜还在写代码。",
+  "这个网站没有 bug，只有特性。",
+  "恭喜你发现了这句废话。",
+];
+function randomQuote() {
+  const q = QUOTES[Math.floor(Math.random() * QUOTES.length)];
+  const el = document.getElementById('quote-text');
+  el.textContent = q;
+  gsap.from(el, { opacity: 0, y: 10, duration: 0.4 });
 }
 
 function initParticles() {
