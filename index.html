@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title id="page-title">欢迎 🎉</title>
-<meta name="description" content="我的个人数字小屋">
+<title id="page-title">aioosi.com</title>
+<meta name="description" content="aioosi.com — 我的数字小屋">
 <script src="https://cdn.tailwindcss.com"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
@@ -15,78 +15,99 @@
 <body class="bg-slate-950 text-white overflow-x-hidden">
 
 <canvas id="particles" class="fixed inset-0 pointer-events-none"></canvas>
+<canvas id="fireworks" class="fixed inset-0 pointer-events-none" style="z-index: 50;"></canvas>
+<div id="danmaku-layer" class="fixed inset-0 pointer-events-none overflow-hidden" style="z-index: 40;"></div>
 
 <!-- Hero -->
 <header class="min-h-screen flex flex-col items-center justify-center text-center px-6 relative">
-  <p class="text-sm tracking-widest text-slate-400 mb-4 hero-fade">🎉 新域名开张 🎉</p>
-  <h1 id="domain-name" class="text-5xl md:text-7xl font-black bg-gradient-to-r from-pink-400 via-purple-400 to-cyan-400 bg-clip-text text-transparent hero-fade"></h1>
-  <p id="hero-subtitle" class="mt-6 text-xl text-slate-300 hero-fade"></p>
-  <div class="mt-10 flex gap-4 hero-fade">
-    <a href="#story" class="px-6 py-3 rounded-full bg-gradient-to-r from-pink-500 to-purple-500 font-bold hover:scale-105 transition">看看这个域名的故事 ↓</a>
+  <p class="text-sm tracking-[0.3em] text-slate-500 mb-6 hero-fade">WELCOME</p>
+  <h1 id="domain-name" class="text-5xl md:text-7xl font-black bg-gradient-to-r from-slate-100 via-slate-300 to-slate-100 bg-clip-text text-transparent hero-fade"></h1>
+  <p id="hero-subtitle" class="mt-6 text-lg text-slate-400 hero-fade"></p>
+  <div class="mt-10 hero-fade">
+    <a href="#story" class="px-8 py-3 rounded-full border border-slate-700 hover:border-white transition text-sm tracking-widest">往下看看</a>
   </div>
-  <p class="absolute bottom-8 text-slate-500 text-sm animate-bounce">↓ 往下滚动有惊喜</p>
 </header>
 
-<!-- 域名诞生记 -->
+<!-- Story -->
 <section id="story" class="py-24 px-6 max-w-3xl mx-auto">
-  <h2 class="text-3xl md:text-4xl font-bold text-center mb-4">🎂 域名诞生记</h2>
-  <p class="text-center text-slate-400 mb-12">aioosi.com 的前世今生（目前只有今生）</p>
+  <h2 class="text-2xl md:text-3xl font-bold text-center mb-3">时间线</h2>
+  <p class="text-center text-slate-500 mb-12 text-sm">aioosi.com 的故事</p>
   <div class="space-y-6">
     <div class="flex gap-4 items-start story-item">
-      <div class="text-3xl">🌱</div>
-      <div class="bg-slate-900 rounded-2xl p-5 border border-slate-800 flex-1">
-        <p class="font-bold">2026-10-09 · 诞生</p>
-        <p class="text-slate-400 text-sm mt-1">aioosi.com 被注册。从此互联网上有了一个属于我的角落。</p>
+      <div class="w-2 h-2 rounded-full bg-white mt-2 shrink-0"></div>
+      <div class="border-l border-slate-800 pl-6 pb-2 flex-1">
+        <p class="font-bold text-sm tracking-widest text-slate-400">2026-10-09</p>
+        <p class="mt-1">域名注册。从此互联网上有了一个属于我的角落。</p>
       </div>
     </div>
     <div class="flex gap-4 items-start story-item">
-      <div class="text-3xl">🎉</div>
-      <div class="bg-slate-900 rounded-2xl p-5 border border-slate-800 flex-1">
-        <p class="font-bold">今天 · 开张</p>
-        <p class="text-slate-400 text-sm mt-1">第一版网站上线。有撒花，有彩蛋，有留言板。你正在见证历史。</p>
+      <div class="w-2 h-2 rounded-full bg-white mt-2 shrink-0"></div>
+      <div class="border-l border-slate-800 pl-6 pb-2 flex-1">
+        <p class="font-bold text-sm tracking-widest text-slate-400">今天</p>
+        <p class="mt-1">第一版网站上线。你正在见证历史。</p>
       </div>
     </div>
-    <div class="flex gap-4 items-start story-item opacity-50">
-      <div class="text-3xl">🔮</div>
-      <div class="bg-slate-900 rounded-2xl p-5 border border-dashed border-slate-700 flex-1">
-        <p class="font-bold">未来 · 待续</p>
-        <p class="text-slate-400 text-sm mt-1">这里会长成什么样？连我自己都不知道。敬请期待。</p>
+    <div class="flex gap-4 items-start story-item opacity-40">
+      <div class="w-2 h-2 rounded-full border border-slate-600 mt-2 shrink-0"></div>
+      <div class="border-l border-dashed border-slate-800 pl-6 pb-2 flex-1">
+        <p class="font-bold text-sm tracking-widest text-slate-500">未来</p>
+        <p class="mt-1 text-slate-500">这里会长成什么样？敬请期待。</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- 互动游乐场 -->
-<section id="playground" class="py-24 px-6 max-w-3xl mx-auto text-center">
-  <h2 class="text-3xl md:text-4xl font-bold mb-4">🎲 互动游乐场</h2>
-  <p class="text-slate-400 mb-12">无聊？点一点</p>
-  <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-    <button onclick="confettiBlast()" class="bg-slate-900 rounded-2xl p-8 border border-slate-800 hover:border-pink-400 transition hover:scale-105">
-      <div class="text-4xl mb-3">🎊</div>
-      <p class="font-bold">撒花！</p>
-      <p class="text-slate-500 text-sm mt-1">不开心就点我</p>
-    </button>
-    <button onclick="clickerGame(this)" class="bg-slate-900 rounded-2xl p-8 border border-slate-800 hover:border-cyan-400 transition hover:scale-105">
-      <div class="text-4xl mb-3">👆</div>
-      <p class="font-bold">点击计数器</p>
-      <p class="text-slate-500 text-sm mt-1"><span id="click-count">0</span> 次</p>
-    </button>
-    <button onclick="randomQuote()" class="bg-slate-900 rounded-2xl p-8 border border-slate-800 hover:border-purple-400 transition hover:scale-105">
-      <div class="text-4xl mb-3">💬</div>
-      <p class="font-bold">今日一言</p>
-      <p class="text-slate-500 text-sm mt-1" id="quote-text">点我抽一句</p>
-    </button>
+<!-- Playground -->
+<section id="playground" class="py-24 px-6 max-w-4xl mx-auto">
+  <h2 class="text-2xl md:text-3xl font-bold text-center mb-3">游乐场</h2>
+  <p class="text-center text-slate-500 mb-12 text-sm">点一点，别客气</p>
+
+  <!-- Fireworks -->
+  <div class="mb-16">
+    <h3 class="text-lg font-bold mb-2">烟花</h3>
+    <p class="text-slate-500 text-sm mb-4">点击下方任意位置</p>
+    <div id="firework-area" class="h-64 rounded-2xl border border-slate-800 bg-slate-900/50 cursor-crosshair relative overflow-hidden">
+      <p class="absolute inset-0 flex items-center justify-center text-slate-600 text-sm pointer-events-none">点我</p>
+    </div>
+  </div>
+
+  <!-- Fortune -->
+  <div class="mb-16 text-center">
+    <h3 class="text-lg font-bold mb-2">今日运势</h3>
+    <p class="text-slate-500 text-sm mb-4">每天只能抽一次，抽完别后悔</p>
+    <button onclick="drawFortune()" id="fortune-btn" class="px-8 py-3 rounded-full border border-slate-700 hover:border-white transition text-sm tracking-widest">抽一签</button>
+    <div id="fortune-result" class="mt-6 hidden">
+      <p id="fortune-level" class="text-3xl font-black mb-2"></p>
+      <p id="fortune-text" class="text-slate-400"></p>
+    </div>
+  </div>
+
+  <!-- Snake -->
+  <div class="mb-16 text-center">
+    <h3 class="text-lg font-bold mb-2">贪吃蛇</h3>
+    <p class="text-slate-500 text-sm mb-4">方向键或 WASD 操作 · 得分 <span id="snake-score" class="text-white font-bold">0</span></p>
+    <div class="inline-block">
+      <canvas id="snake" width="320" height="320" class="rounded-2xl border border-slate-800 bg-slate-900/50"></canvas>
+      <div class="mt-4">
+        <button onclick="startSnake()" id="snake-btn" class="px-8 py-3 rounded-full border border-slate-700 hover:border-white transition text-sm tracking-widest">开始</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Danmaku -->
+  <div class="text-center">
+    <h3 class="text-lg font-bold mb-2">弹幕</h3>
+    <p class="text-slate-500 text-sm mb-4">发一句话，让它飘过屏幕</p>
+    <div class="flex gap-2 max-w-md mx-auto">
+      <input id="danmaku-input" type="text" maxlength="30" placeholder="说点什么…"
+        class="flex-1 px-4 py-3 rounded-full bg-slate-900 border border-slate-800 focus:border-white outline-none text-sm">
+      <button onclick="sendDanmaku()" class="px-6 py-3 rounded-full border border-slate-700 hover:border-white transition text-sm">发送</button>
+    </div>
   </div>
 </section>
 
-<!-- Easter egg hint -->
-<section class="py-16 text-center px-6">
-  <p class="text-slate-500 text-sm">🤫 听说输入一串神秘代码会有彩蛋… <span class="text-slate-700">(↑↑↓↓←→←→BA)</span></p>
-</section>
-
-<footer class="py-12 text-center text-slate-500 text-sm border-t border-slate-800">
-  <p>Built with ♥ and too much coffee</p>
-  <p class="mt-2">© 2026 · <span id="footer-domain"></span></p>
+<footer class="py-12 text-center text-slate-600 text-sm border-t border-slate-900">
+  <p><span id="footer-domain"></span> · 2026</p>
 </footer>
 
 <script src="js/main.js"></script>
