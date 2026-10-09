@@ -22,37 +22,62 @@
   <h1 id="domain-name" class="text-5xl md:text-7xl font-black bg-gradient-to-r from-pink-400 via-purple-400 to-cyan-400 bg-clip-text text-transparent hero-fade"></h1>
   <p id="hero-subtitle" class="mt-6 text-xl text-slate-300 hero-fade"></p>
   <div class="mt-10 flex gap-4 hero-fade">
-    <a href="#projects" class="px-6 py-3 rounded-full bg-gradient-to-r from-pink-500 to-purple-500 font-bold hover:scale-105 transition">看看在折腾啥 ↓</a>
+    <a href="#story" class="px-6 py-3 rounded-full bg-gradient-to-r from-pink-500 to-purple-500 font-bold hover:scale-105 transition">看看这个域名的故事 ↓</a>
     <a href="#guestbook" class="px-6 py-3 rounded-full border border-slate-600 hover:border-pink-400 transition">留个言 ✍️</a>
   </div>
   <p class="absolute bottom-8 text-slate-500 text-sm animate-bounce">↓ 往下滚动有惊喜</p>
 </header>
 
-<!-- Projects -->
-<section id="projects" class="py-24 px-6 max-w-5xl mx-auto">
-  <h2 class="text-3xl md:text-4xl font-bold text-center mb-4">🛠️ 最近在折腾</h2>
-  <p class="text-center text-slate-400 mb-12">一些好玩的项目，欢迎围观</p>
-  <div class="grid md:grid-cols-3 gap-6">
-    <div class="project-card bg-slate-900 rounded-2xl p-6 border border-slate-800 hover:border-purple-400 transition cursor-pointer" onclick="cardFlip(this)">
-      <div class="text-4xl mb-4">🔐</div>
-      <h3 class="text-xl font-bold mb-2">RAG 访问控制</h3>
-      <p class="text-slate-400 text-sm card-front">检索单元与授权单元解耦，让 AI 只看到它该看的东西</p>
-      <p class="text-slate-400 text-sm card-back hidden">12 轮实验，强 reader 下投影保留 92% 效用，泄露 0.90→0.06。论文ing…</p>
+<!-- 域名诞生记 -->
+<section id="story" class="py-24 px-6 max-w-3xl mx-auto">
+  <h2 class="text-3xl md:text-4xl font-bold text-center mb-4">🎂 域名诞生记</h2>
+  <p class="text-center text-slate-400 mb-12">aioosi.com 的前世今生（目前只有今生）</p>
+  <div class="space-y-6">
+    <div class="flex gap-4 items-start story-item">
+      <div class="text-3xl">🌱</div>
+      <div class="bg-slate-900 rounded-2xl p-5 border border-slate-800 flex-1">
+        <p class="font-bold">2026-10-09 · 诞生</p>
+        <p class="text-slate-400 text-sm mt-1">aioosi.com 被注册。从此互联网上有了一个属于我的角落。</p>
+      </div>
     </div>
-    <div class="project-card bg-slate-900 rounded-2xl p-6 border border-slate-800 hover:border-cyan-400 transition cursor-pointer" onclick="cardFlip(this)">
-      <div class="text-4xl mb-4">📝</div>
-      <h3 class="text-xl font-bold mb-2">texmini</h3>
-      <p class="text-slate-400 text-sm card-front">macOS 原生轻量 LaTeX 编辑器</p>
-      <p class="text-slate-400 text-sm card-back hidden">极致轻快，美丽界面。写论文不再痛苦（大概）。</p>
+    <div class="flex gap-4 items-start story-item">
+      <div class="text-3xl">🎉</div>
+      <div class="bg-slate-900 rounded-2xl p-5 border border-slate-800 flex-1">
+        <p class="font-bold">今天 · 开张</p>
+        <p class="text-slate-400 text-sm mt-1">第一版网站上线。有撒花，有彩蛋，有留言板。你正在见证历史。</p>
+      </div>
     </div>
-    <div class="project-card bg-slate-900 rounded-2xl p-6 border border-slate-800 hover:border-pink-400 transition cursor-pointer" onclick="cardFlip(this)">
-      <div class="text-4xl mb-4">📡</div>
-      <h3 class="text-xl font-bold mb-2">每日 AI 看板</h3>
-      <p class="text-slate-400 text-sm card-front">每天自动抓取的 AI 资讯聚合</p>
-      <p class="text-slate-400 text-sm card-back hidden">论文/模型/大佬动态/财经，一天三次更新。信息焦虑终结者。</p>
+    <div class="flex gap-4 items-start story-item opacity-50">
+      <div class="text-3xl">🔮</div>
+      <div class="bg-slate-900 rounded-2xl p-5 border border-dashed border-slate-700 flex-1">
+        <p class="font-bold">未来 · 待续</p>
+        <p class="text-slate-400 text-sm mt-1">这里会长成什么样？连我自己都不知道。敬请期待。</p>
+      </div>
     </div>
   </div>
-  <p class="text-center text-slate-500 text-sm mt-8">💡 点击卡片翻面看看</p>
+</section>
+
+<!-- 互动游乐场 -->
+<section id="playground" class="py-24 px-6 max-w-3xl mx-auto text-center">
+  <h2 class="text-3xl md:text-4xl font-bold mb-4">🎲 互动游乐场</h2>
+  <p class="text-slate-400 mb-12">无聊？点一点</p>
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+    <button onclick="confettiBlast()" class="bg-slate-900 rounded-2xl p-8 border border-slate-800 hover:border-pink-400 transition hover:scale-105">
+      <div class="text-4xl mb-3">🎊</div>
+      <p class="font-bold">撒花！</p>
+      <p class="text-slate-500 text-sm mt-1">不开心就点我</p>
+    </button>
+    <button onclick="clickerGame(this)" class="bg-slate-900 rounded-2xl p-8 border border-slate-800 hover:border-cyan-400 transition hover:scale-105">
+      <div class="text-4xl mb-3">👆</div>
+      <p class="font-bold">点击计数器</p>
+      <p class="text-slate-500 text-sm mt-1"><span id="click-count">0</span> 次</p>
+    </button>
+    <button onclick="randomQuote()" class="bg-slate-900 rounded-2xl p-8 border border-slate-800 hover:border-purple-400 transition hover:scale-105">
+      <div class="text-4xl mb-3">💬</div>
+      <p class="font-bold">今日一言</p>
+      <p class="text-slate-500 text-sm mt-1" id="quote-text">点我抽一句</p>
+    </button>
+  </div>
 </section>
 
 <!-- Easter egg hint -->
